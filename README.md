@@ -15,3 +15,8 @@ Where EDA was done and applied different algorithm to find our which gives the m
 (HT means hyperparmeter tunig)
 
 We found Random forest gives the lowest error, so we used that to predict the steamflow in the app.py 
+
+# papermil_rf.pkl
+The pickel file is created from Notebook file using the Random Forest Algorithm. 
+
+

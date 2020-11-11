@@ -147,7 +147,7 @@ st.write(prediction_xgb)
 st.write("""
          # Model Explainability- XGBoost """)
 
- st.subheader("""
+st.subheader("""
 # Why it is important?""")
 
 st.write("""

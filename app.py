@@ -3,7 +3,8 @@ import pandas as pd
 import pickle
 import os
 import numpy as np
-import sklearn 
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn import metrics
 
 
 

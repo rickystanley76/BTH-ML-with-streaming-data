@@ -19,4 +19,9 @@ We found Random forest gives the lowest error, so we used that to predict the st
 # papermil_rf.pkl
 The pickel file is created from Notebook file using the Random Forest Algorithm. 
 
+# papermil_water_flow.csv
+The data of the paper mil, 11 features and 1(steamflow) target. 
+
+
+
 

@@ -60,7 +60,7 @@ def user_input_features():
 
 
 # Show Entire Dataframe
-if st.checkbox("Show DataFrame used in the Model Building"):
+if st.checkbox("Show Dataset used in the Model Building"):
 	data = explore_data(my_dataset)
 	st.dataframe(data)
 
@@ -103,8 +103,8 @@ if showdescription:
 This app predicts the **SteamFlow** of a PaperRoll in PaperMill!
 
 During the production of a paper roll in the paper mill, it takes around **17-20** tons of water/hour(Depends on the size of the roll).
-There are 403 parameters nobs are all around the paper machine, which measures different parameters during the production. Among them 11 of them are
-more important that has good effect on the water uses(SteamFlow) parapeter.
+There are 403 parameters nobs are all around the paper machine, which measures different parameters during the production. Among them, 11 are
+more important that has good effect on the water uses(SteamFlow) parameter.
 
 With this app production manager can check how much water will be used to produce a paper roll and set the parameters to those 12 nobs.
 
@@ -163,7 +163,7 @@ st.pyplot(bbox_inches='tight')
 
 
 if st.button("About"):
-        st.text("Model-Built with Random forest regressor")
+        st.text("Model-Built with XGBoost")
         st.text("by: Ricky D'Cruze, As a project of BTH- Machine leanrning with Streaming data course")
         
 

@@ -11,6 +11,7 @@ Where EDA was done and applied different algorithm to find our which gives the m
 2.	XGBoost	              0.74817	0.6691
 3.	Random Forest with HT	0.7862	0.61646
 4.	Decision Tree with HT	0.51144	0.93205
+
 (HT means hyperparmeter tunig)
 
 We found Random forest gives the lowest error, so we used that to predict the steamflow in the app.py 

@@ -3,9 +3,12 @@ import pandas as pd
 import pickle
 import os
 import numpy as np
+import shap
+import xgboost
+import matplotlib.pyplot as plt
 
 
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title('SteamFlow Prediction APP for a Papermil ')
 from PIL import Image
@@ -107,7 +110,11 @@ With this app production manager can check how much water will be used to produc
 
 #  Tools used:
 
-We have used Random Forest regressor to make the model with hyperparameter tuning. 
+We have used XGBoost with the following parameters:
+    XGBRegressor(colsample_bytree=0.7949874768919643, gamma=0.4610218094027685,
+             learning_rate=0.34903254668281886, max_depth=13,
+             min_child_weight=53.33039107887038, n_estimators=1235, nthreads=-1,
+             reg_alpha=9.683328077024195, subsample=0.9849758415841514)
 
 Data we had collected from a paper mill open data. The data consists of 3941 records with 11(independent) 1(dependent) features. 
 
@@ -122,18 +129,37 @@ input_df = user_input_features()
 #as Random forest gives us the minimum error(RMSE), we will use that to 
 #find the prediction of Steamflow
 
-# Reads in saved Randomforest  model
-load_rf_model = pickle.load(open('papermil_rf.pkl', 'rb'))
 
-# Apply RF model to make predictions
-prediction_rf = load_rf_model.predict(input_df)
+
+# Reads in saved XGB  model
+load_xgb_model = pickle.load(open('papermil_xgb.pkl', 'rb'))
+
+# Apply XGB model to make predictions
+prediction_xgb = load_xgb_model.predict(input_df)
 
 
 st.write("""
          # Result- 
-         Prediction of SteamFlow(tons/hour)- using RandomForest""")
-st.write(prediction_rf)
+         Prediction of SteamFlow(tons/hour)- using XGBoost""")
+st.write(prediction_xgb)
 
+
+st.write("""
+         # Model Explainability- XGBoost """)
+# Explaining the model's predictions using SHAP values
+# https://github.com/slundberg/shap
+explainer = shap.TreeExplainer(load_xgb_model)
+shap_values = explainer.shap_values(input_df)
+
+st.header('Feature Importance')
+plt.title('Feature importance based on SHAP values')
+shap.summary_plot(shap_values, input_df)
+st.pyplot(bbox_inches='tight')
+st.write('---')
+
+plt.title('Feature importance based on SHAP values (Bar)')
+shap.summary_plot(shap_values, input_df, plot_type="bar")
+st.pyplot(bbox_inches='tight')
 
 
 if st.button("About"):

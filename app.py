@@ -3,7 +3,6 @@ import pandas as pd
 import pickle
 import os
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn import metrics
 
@@ -121,32 +120,6 @@ Used scikit learn.
 
 st.sidebar.header('User Input Features- 11 parameters: Change the parameters and see the result in the right side')
 
-# Collects user input features into dataframe
-#uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
-#if uploaded_file is not None:
- #   input_df = pd.read_csv(uploaded_file)
-#else:
-    
-
-# Combines user input features with entire penguins dataset
-# This will be useful for the encoding phase
-# =============================================================================
-# papermil_raw = pd.read_csv('papermil_water_flow.csv')
-# papermil = papermil_raw.drop(columns=['steamflow'])
-# df = pd.concat([input_df,papermil],axis=0)
-# =============================================================================
-
-
-# Displays the user input features
-#st.subheader('User Input features')
-
-# =============================================================================
-# if uploaded_file is not None:
-#     st.write(input_df)
-# else:
-#     st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
-#     st.write(input_df)
-# =============================================================================
 
 input_df = user_input_features()
 #as Random forest gives us the minimum error(RMSE), we will use that to 

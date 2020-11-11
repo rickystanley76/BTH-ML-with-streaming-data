@@ -3,9 +3,6 @@ import pandas as pd
 import pickle
 import os
 import numpy as np
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn import metrics
-
 
 
 
@@ -114,7 +111,7 @@ We have used Random Forest regressor to make the model with hyperparameter tunin
 
 Data we had collected from a paper mill open data. The data consists of 3941 records with 11(independent) 1(dependent) features. 
 
-Used scikit learn.
+Used Streamlit Library.
 
 """)
 

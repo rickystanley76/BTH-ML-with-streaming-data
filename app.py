@@ -146,6 +146,16 @@ st.write(prediction_xgb)
 
 st.write("""
          # Model Explainability- XGBoost """)
+
+ st.subheader("""
+# Why it is important?""")
+
+st.write("""
+Machine learning can't be a black box today, as GDPR implemented, model should have the power to explain.
+By which companies can built trust among user and customer using a machine learning model.
+
+""")         
+         
 # Explaining the model's predictions using SHAP values
 # https://github.com/slundberg/shap
 explainer = shap.TreeExplainer(load_xgb_model)

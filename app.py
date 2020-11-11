@@ -3,8 +3,6 @@ import pandas as pd
 import pickle
 import os
 import numpy as np
-import shap
-import xgboost
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn import metrics

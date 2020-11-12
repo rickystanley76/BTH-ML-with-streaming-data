@@ -188,6 +188,6 @@ st.pyplot(bbox_inches='tight')
 
 st.subheader("Model-Built with XGBoost, Deployed with Streamlit")
 st.text("by: Ricky D'Cruze, As a project of BTH- Machine leanrning with Streaming data course")
-        
+st.write("Source code, Data, pickle file,notebook in Github [link](https://github.com/rickystanley76/BTH-ML-with-streaming-data)")   
 
 

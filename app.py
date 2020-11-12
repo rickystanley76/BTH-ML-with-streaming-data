@@ -174,6 +174,8 @@ shap_values = explainer.shap_values(input_df)
 
 st.header('Feature Importance')
 plt.title('Feature importance based on SHAP values')
+st.text('Explaining the model predictions using SHAP values')
+st.write("SHAP in Github [link](https://github.com/slundberg/shap)")
 run_status()
 shap.summary_plot(shap_values, input_df)
 st.pyplot(bbox_inches='tight')
@@ -184,9 +186,8 @@ shap.summary_plot(shap_values, input_df, plot_type="bar")
 st.pyplot(bbox_inches='tight')
 
 
-if st.button("About"):
-        st.text("Model-Built with XGBoost")
-        st.text("by: Ricky D'Cruze, As a project of BTH- Machine leanrning with Streaming data course")
+st.subheader("Model-Built with XGBoost, Deployed with Streamlit")
+st.text("by: Ricky D'Cruze, As a project of BTH- Machine leanrning with Streaming data course")
         
 
 

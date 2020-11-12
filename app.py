@@ -6,6 +6,17 @@ import numpy as np
 import shap
 import xgboost
 import matplotlib.pyplot as plt
+import time
+
+
+def run_status():
+	latest_iteration = st.empty()
+	bar = st.progress(0)
+	for i in range(100):
+		latest_iteration.text(f'Percent Complete {i+1}')
+		bar.progress(i + 1)
+		time.sleep(0.1)
+		st.empty()
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -163,6 +174,7 @@ shap_values = explainer.shap_values(input_df)
 
 st.header('Feature Importance')
 plt.title('Feature importance based on SHAP values')
+run_status()
 shap.summary_plot(shap_values, input_df)
 st.pyplot(bbox_inches='tight')
 st.write('---')

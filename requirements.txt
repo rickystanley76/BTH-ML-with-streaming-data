@@ -6,3 +6,4 @@ numpy==1.19.4
 Pillow==8.0.1
 scikit_learn==0.23.2
 streamlit==0.70.0
+orange3=3.26.0

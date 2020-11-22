@@ -141,19 +141,32 @@ input_df = user_input_features()
 #find the prediction of Steamflow
 
 
-
 # Reads in saved XGB  model
 load_xgb_model = pickle.load(open('papermil_xgb.pkl', 'rb'))
 
 # Apply XGB model to make predictions
 prediction_xgb = load_xgb_model.predict(input_df)
 
+# Reads in saved Orange AdaBoost  model
+load_ada_model = pickle.load(open('Orange_adaboost_Model.pkcls', 'rb'))
+
+
+# Apply Adaboost model to make predictions
+prediction_ada = load_ada_model.predict(input_df)
+
+## Result displaying in Table
+resultframe = {'XGBoost':  [prediction_xgb],
+        'AdaBoost': [prediction_ada]
+        }
+
+df_res = pd.DataFrame (resultframe, columns = ['XGBoost','AdaBoost'])
 
 st.write("""
-         # Result- 
-         Prediction of SteamFlow(tons/hour)- using XGBoost""")
-st.write(prediction_xgb)
+         # Below is the Result comparison:""")
+st.write(df_res)
 
+
+#Model Explainability--
 
 st.write("""
          # Model Explainability- XGBoost """)
@@ -169,8 +182,11 @@ By which companies can built trust among user and customer using a machine learn
          
 # Explaining the model's predictions using SHAP values
 # https://github.com/slundberg/shap
+
 explainer = shap.TreeExplainer(load_xgb_model)
 shap_values = explainer.shap_values(input_df)
+
+
 
 st.header('Feature Importance')
 plt.title('Feature importance based on SHAP values')
@@ -184,6 +200,7 @@ st.write('---')
 plt.title('Feature importance based on SHAP values (Bar)')
 shap.summary_plot(shap_values, input_df, plot_type="bar")
 st.pyplot(bbox_inches='tight')
+
 
 
 st.subheader("Model-Built with XGBoost, Deployed with Streamlit")

@@ -147,22 +147,22 @@ load_xgb_model = pickle.load(open('papermil_xgb.pkl', 'rb'))
 # Apply XGB model to make predictions
 prediction_xgb = load_xgb_model.predict(input_df)
 
-# Reads in saved Orange AdaBoost  model
-load_ada_model = pickle.load(open('Orange_adaboost_Model.pkcls', 'rb'))
+# # Reads in saved Orange AdaBoost  model
+# load_ada_model = pickle.load(open('Orange_adaboost_Model.pkcls', 'rb'))
 
 
-# Apply Adaboost model to make predictions
-prediction_ada = load_ada_model.predict(input_df)
+# # Apply Adaboost model to make predictions
+# prediction_ada = load_ada_model.predict(input_df)
 
 ## Result displaying in Table
-resultframe = {'XGBoost':  [prediction_xgb],
-        'AdaBoost': [prediction_ada]
+resultframe = {'XGBoost':  [prediction_xgb]
+        #'AdaBoost': [prediction_ada]
         }
 
-df_res = pd.DataFrame (resultframe, columns = ['XGBoost','AdaBoost'])
+df_res = pd.DataFrame (resultframe, columns = ['XGBoost'])
 
 st.write("""
-         # Below is the Result comparison:""")
+         # Below is the Result :(Tons/hour)""")
 st.write(df_res)
 
 

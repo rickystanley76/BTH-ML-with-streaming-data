@@ -1,4 +1,4 @@
-# BTH-ML-with-streaming-data
+# BTH-ML-with-streaming-data [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/rickystanley76/bth-ml-with-streaming-data/main/app.py)
 The project is about SteamFlow prediction of a paper mil. The target is to predict how much water needed to make a paper roll.
 
 # app.py
